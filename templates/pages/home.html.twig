@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+{% block title 'Agence lorem Ipsum'%}
+{% block body %}
+<div class="jumbotron text-center">
+<h1>Bienvenue su le site de le site Do It Yourself de Céline</h1>
+<p> Création faite à base de résine</p>
+</div>
+
+<div class="container">
+<h2>Les dernieres créations</h2>
+<div class="row flex">
+{% for property in properties %}
+<div class="col-3">
+<div class="card">
+<div class="card-body">
+<h5 class="card-title">
+<a href="{{ path('property.show', {id: property.id, slug: property.slug}) }}">{{ property.title }}</a>
+</h5>
+<p class="card-text">{{ property.city }} ( {{ property.postalCode }})</p>
+<div class="text-primary" style="   ">{{ property.formattedPrice }} €</div>
+</div>
+</div>
+</div>
+{% endfor %}
+</div>
+</div>
+{% endblock %}
